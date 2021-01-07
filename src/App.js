@@ -1,23 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Suspense,
+  lazy,
+  useEffect,
+  useState,
+  useCallback,
+  createContext,
+} from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ErrorBoundary from "./ErrorBoundary";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+const Home = lazy(() => import("./components/home/Home"));
+const Header = lazy(() => import("./components/header/Header"));
+const Footer = lazy(() => import("./components/footer/Footer"));
+
+export const WindowWidthContext = createContext();
 
 function App() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollToPlugin);
+    gsap.registerPlugin(ScrollTrigger);
+    window.scrollTo(0, 0);
+  }, []);
+
+  const resizeEvent = useCallback(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeEvent);
+
+    return () => window.removeEventListener("resize", resizeEvent);
+  }, [resizeEvent]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <ErrorBoundary>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Header />
+            <Switch>
+              <WindowWidthContext.Provider value={windowWidth}>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </WindowWidthContext.Provider>
+            </Switch>
+            <Footer />
+          </Suspense>
+        </ErrorBoundary>
+      </Router>
     </div>
   );
 }
