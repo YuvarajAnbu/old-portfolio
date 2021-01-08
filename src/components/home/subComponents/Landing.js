@@ -11,7 +11,11 @@ function Landing() {
       })
       .from(
         ".home__landing__content h1, .home__landing__content p, .home__landing__content button, .home__landing__content__rectangle",
-        { duration: 0.8, y: 50, opacity: 0 }
+        {
+          duration: 0.8,
+          y: 50,
+          opacity: 0,
+        }
       )
       .from(".home__landing__img", { duration: 0.8, x: 100, opacity: 0 }, 0.8);
   }, []);

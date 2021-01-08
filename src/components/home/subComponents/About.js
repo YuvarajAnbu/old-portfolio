@@ -59,7 +59,7 @@ function About() {
       },
       "(max-width: 1000px)": function () {
         const tl = gsap.timeline();
-        tl.set("#about", { y: 100, opacity: 0, visibility: "visible" }).to(
+        tl.set("#about", { y: 50, opacity: 0, visibility: "visible" }).to(
           "#about",
           {
             duration: 1,
@@ -71,13 +71,13 @@ function About() {
                 gsap.to("#about", { duration: 0.8, y: 0, opacity: 1 });
               },
               onLeave: () => {
-                gsap.to("#about", { duration: 0.8, y: -100, opacity: 0 });
+                gsap.to("#about", { duration: 0.8, y: -50, opacity: 0 });
               },
               onEnterBack: () => {
                 gsap.to("#about", { duration: 0.8, y: 0, opacity: 1 });
               },
               onLeaveBack: () => {
-                gsap.to("#about", { duration: 0.8, y: 100, opacity: 0 });
+                gsap.to("#about", { duration: 0.8, y: 50, opacity: 0 });
               },
             },
           }

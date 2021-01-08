@@ -52,29 +52,33 @@ function Contact() {
       },
       "(max-width: 1000px)": function () {
         const tl = gsap.timeline();
-        tl.set("#contact", { y: 100, opacity: 0, visibility: "visible" }).to(
-          "#contact",
-          {
+        tl.set("#contact", { visibility: "visible" })
+          .set(".home__contact__img-container", { x: 0, opacity: 1 })
+          .set(".home__contact__content", { x: 0, opacity: 1 })
+          .to("#contact", {
             duration: 1,
             scrollTrigger: {
               trigger: "#contact",
               start: "60% bottom",
               end: "95% top",
               onEnter: () => {
-                gsap.to("#contact", { duration: 0.8, y: 0, opacity: 1 });
+                gsap.fromTo(
+                  "#contact",
+                  { y: 50, opacity: 0 },
+                  { duration: 0.8, y: 0, opacity: 1 }
+                );
               },
               onLeave: () => {
-                gsap.to("#contact", { duration: 0.8, y: -100, opacity: 0 });
+                gsap.to("#contact", { duration: 0.8, y: -50, opacity: 0 });
               },
               onEnterBack: () => {
                 gsap.to("#contact", { duration: 0.8, y: 0, opacity: 1 });
               },
               onLeaveBack: () => {
-                gsap.to("#contact", { duration: 0.8, y: 100, opacity: 0 });
+                gsap.to("#contact", { duration: 0.8, y: 50, opacity: 0 });
               },
             },
-          }
-        );
+          });
       },
     });
   }, []);

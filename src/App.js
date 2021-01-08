@@ -41,7 +41,13 @@ function App() {
     <div className="App">
       <Router>
         <ErrorBoundary>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={
+              <div className="loading-container">
+                <div className="loading-container__icon"></div>
+              </div>
+            }
+          >
             <Header />
             <Switch>
               <WindowWidthContext.Provider value={windowWidth}>

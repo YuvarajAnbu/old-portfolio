@@ -40,7 +40,7 @@ function Work() {
             },
           });
         },
-        "(max-width: 1400px)": function () {
+        "(min-width: 999px) and (max-width: 1400px)": function () {
           gsap.to(`#project-${i}`, {
             scrollTrigger: {
               trigger: `#project-${i}`,
@@ -65,6 +65,35 @@ function Work() {
               },
               onLeaveBack: () => {
                 gsap.to(`#project-${i}`, { duration: 0.8, y: 100, opacity: 0 });
+              },
+            },
+          });
+        },
+        "(max-width: 1000px)": function () {
+          gsap.to(`#project-${i}`, {
+            scrollTrigger: {
+              trigger: `#project-${i}`,
+              start: "10% bottom",
+              end: "90% top",
+              onEnter: () => {
+                const tl = gsap.timeline();
+                tl.set(`#project-${i}`, { visibility: "visible" }).fromTo(
+                  `#project-${i}`,
+                  {
+                    y: 50,
+                    opacity: 0,
+                  },
+                  { duration: 0.8, y: 0, opacity: 1 }
+                );
+              },
+              onLeave: () => {
+                gsap.to(`#project-${i}`, { y: -50, opacity: 0 });
+              },
+              onEnterBack: () => {
+                gsap.to(`#project-${i}`, { duration: 0.8, y: 0, opacity: 1 });
+              },
+              onLeaveBack: () => {
+                gsap.to(`#project-${i}`, { duration: 0.8, y: 50, opacity: 0 });
               },
             },
           });

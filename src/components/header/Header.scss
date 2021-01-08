@@ -29,8 +29,9 @@
       font-size: 15px;
       text-transform: uppercase;
 
-      &:hover {
-        color: rgb(85, 85, 85);
+      &:hover,
+      &:focus {
+        color: rgb(255, 255, 255);
       }
     }
   }

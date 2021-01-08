@@ -93,9 +93,14 @@
   padding: 1rem 48px;
   display: block;
   margin-left: auto;
-  -webkit-transform: translatex(-20%);
-          transform: translatex(-20%);
+  -webkit-transform: translateX(-20%);
+          transform: translateX(-20%);
   cursor: pointer;
+}
+
+.home__landing__content button:hover, .home__landing__content button:focus {
+  border: 1px solid #d7dadc;
+  color: #d7dadc;
 }
 
 .home__landing__content__rectangle {
@@ -116,10 +121,11 @@
   height: 0;
   padding-bottom: calc(40% * 1.5008);
   position: relative;
-  background-color: black;
+  background-color: #3e3e3e;
 }
 
 .home__landing__img img {
+  background-color: #3e3e3e;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -193,11 +199,12 @@
   width: calc(50% - 8px);
   opacity: 0.95;
   padding-bottom: calc((50% - 8px) * 0.5625);
-  background-color: black;
+  background-color: #3e3e3e;
   position: relative;
 }
 
 .home__work__projects-container__project__img-container img {
+  background-color: #3e3e3e;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -268,6 +275,11 @@
   margin-right: 8px;
 }
 
+.home__work__projects-container__project__content__button-container a button:hover, .home__work__projects-container__project__content__button-container a button:focus {
+  border: 1px solid white;
+  color: white;
+}
+
 .home__work__projects-container__project__content__button-container a:last-child button {
   background-color: #f1f1f1;
   color: black;
@@ -277,6 +289,10 @@
 .home__work__projects-container__project__content__button-container a:last-child button .icon {
   margin-left: 8px;
   margin-right: 0;
+}
+
+.home__work__projects-container__project__content__button-container a:last-child button:hover, .home__work__projects-container__project__content__button-container a:last-child button:focus {
+  background-color: white;
 }
 
 .home__work__link {
@@ -314,10 +330,11 @@
   width: 40%;
   padding-bottom: calc(40% * 0.6338);
   position: relative;
-  background-color: black;
+  background-color: #3e3e3e;
 }
 
 .home__contact__img-container img {
+  background-color: #3e3e3e;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -354,6 +371,10 @@
 .home__contact__content ul li .icon {
   margin-right: 10px;
   font-size: 18px;
+}
+
+.home__contact__content ul li:hover, .home__contact__content ul li:focus {
+  color: white;
 }
 
 @media (max-width: 1400px) {
