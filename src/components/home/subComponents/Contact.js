@@ -95,20 +95,29 @@ function Contact() {
         <h3>Contact me on any social media. Just say hi and lets talk.</h3>
         <ul>
           <li>
-            <FontAwesomeIcon className="icon" icon={faEnvelope} />
-            e-mail
+            <a href="mailto:xander21here@gmail.com">
+              <FontAwesomeIcon className="icon" icon={faEnvelope} />
+              e-mail
+            </a>
           </li>
           <li>
-            <FontAwesomeIcon className="icon" icon={faInstagram} />
-            instagram
+            <a href="https://www.instagram.com/xander21here/">
+              <FontAwesomeIcon className="icon" icon={faInstagram} />
+              instagram
+            </a>
           </li>
           <li>
-            <FontAwesomeIcon className="icon" icon={faDiscord} />
-            discord
+            <a href="https://discord.gg/apuMtq3e">
+              <FontAwesomeIcon className="icon" icon={faDiscord} />
+              discord
+            </a>
           </li>
+
           <li>
-            <FontAwesomeIcon className="icon" icon={faFacebookSquare} />
-            facebook
+            <a href="https://www.facebook.com/xander21here">
+              <FontAwesomeIcon className="icon" icon={faFacebookSquare} />
+              facebook
+            </a>
           </li>
         </ul>
       </div>
