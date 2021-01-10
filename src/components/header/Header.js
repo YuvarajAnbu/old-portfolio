@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 import { WindowWidthContext } from "../../App";
 import "./Header.css";
@@ -42,28 +43,44 @@ function Header() {
       >
         <li
           onClick={() => {
-            gsap.to(window, { duration: 0.5, scrollTo: "#home" });
+            if (windowWidth <= 1000) {
+              setVisible(false);
+              ScrollTrigger.getById("enterTrigger").disable();
+            }
+            gsap.to(window, { duration: 0.8, scrollTo: "#home" });
           }}
         >
           Home
         </li>
         <li
           onClick={() => {
-            gsap.to(window, { duration: 0.5, scrollTo: "#about" });
+            if (windowWidth <= 1000) {
+              setVisible(false);
+              ScrollTrigger.getById("enterTrigger").disable();
+            }
+            gsap.to(window, { duration: 0.8, scrollTo: "#about" });
           }}
         >
           about
         </li>
         <li
           onClick={() => {
-            gsap.to(window, { duration: 0.5, scrollTo: "#work" });
+            if (windowWidth <= 1000) {
+              setVisible(false);
+              ScrollTrigger.getById("enterTrigger").disable();
+            }
+            gsap.to(window, { duration: 0.8, scrollTo: "#work" });
           }}
         >
           work
         </li>
         <li
           onClick={() => {
-            gsap.to(window, { duration: 0.5, scrollTo: "#contact" });
+            if (windowWidth <= 1000) {
+              setVisible(false);
+              ScrollTrigger.getById("enterTrigger").disable();
+            }
+            gsap.to(window, { duration: 0.8, scrollTo: "#contact" });
           }}
         >
           let's talk

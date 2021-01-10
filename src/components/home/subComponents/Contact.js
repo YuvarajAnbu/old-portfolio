@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { gsap } from "gsap";
+import { WindowWidthContext } from "../../../App";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -10,6 +11,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 function Contact() {
+  const windowWidth = useContext(WindowWidthContext);
+
   useEffect(() => {
     ScrollTrigger.matchMedia({
       "(min-width: 1001px)": function () {
@@ -89,7 +92,9 @@ function Contact() {
         contact <span></span>
       </p>
       <div className="home__contact__img-container">
-        <img src="/images/contact.jpg" alt="person using laptop" />
+        {windowWidth > 1000 && (
+          <img src="/images/contact.jpg" alt="person using laptop" />
+        )}
       </div>
       <div className="home__contact__content">
         <h3>Contact me on any social media. Just say hi and lets talk.</h3>

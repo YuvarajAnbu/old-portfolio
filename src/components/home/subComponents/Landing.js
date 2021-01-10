@@ -1,7 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import { gsap } from "gsap";
+import { WindowWidthContext } from "../../../App";
 
 function Landing() {
+  const windowWidth = useContext(WindowWidthContext);
+
   useEffect(() => {
     const tl = gsap.timeline();
     tl.set("#landing", { visibility: "visible" })
@@ -24,21 +27,23 @@ function Landing() {
     <div className="home__landing" id="landing">
       <div className="home__landing__content">
         <div className="home__landing__content__line"></div>
-        <h1>I make your Dream website to reality.</h1>
+        <h1>i make things on the internet</h1>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took{" "}
+          You heard it right. I make websites, web apps, pretty much whatever
+          you want on the browser. It can be either an e-commerce site, a single
+          page or whatever you want and I'll make it.
         </p>
         <button
-          onClick={() => gsap.to(window, { duration: 0.5, scrollTo: "#about" })}
+          onClick={() => gsap.to(window, { duration: 0.7, scrollTo: "#about" })}
         >
           know more
         </button>
         <div className="home__landing__content__rectangle"></div>
       </div>
       <div className="home__landing__img">
-        <img src="/images/landing.jpg" alt="person using laptop" />
+        {windowWidth > 1000 && (
+          <img src="/images/landing.jpg" alt="person using laptop" />
+        )}
       </div>
     </div>
   );

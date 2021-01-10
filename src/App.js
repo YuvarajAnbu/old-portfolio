@@ -48,15 +48,15 @@ function App() {
               </div>
             }
           >
-            <Header />
-            <Switch>
-              <WindowWidthContext.Provider value={windowWidth}>
+            <WindowWidthContext.Provider value={windowWidth}>
+              <Header />
+              <Switch>
                 <Route path="/">
                   <Home />
                 </Route>
-              </WindowWidthContext.Provider>
-            </Switch>
-            <Footer />
+              </Switch>
+              <Footer />
+            </WindowWidthContext.Provider>
           </Suspense>
         </ErrorBoundary>
       </Router>
